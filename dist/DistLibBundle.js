@@ -23069,7 +23069,7 @@ class ScreenObject extends __WEBPACK_IMPORTED_MODULE_0__base_object_base_object_
         let object_name = firstScreen[0].getAttribute("obj-name");
         let callbackScreen = "show" + object_name;
         if (self.screenDict[callbackScreen]) {
-          history.pushState({"view": `${object_name}`}, `${object_name}`, `${object_name}`);
+          history.pushState({"view": `${object_name}`}, `${object_name}`, `?${object_name}`);
           self.screenDict[callbackScreen]();
         }
       }, 50);
@@ -23151,7 +23151,7 @@ class ScreenObject extends __WEBPACK_IMPORTED_MODULE_0__base_object_base_object_
       let currentScreenName = currentScreen[0].getAttribute("obj-name");
       let callbackScreen =  "back" + currentScreenName;
       if (self[callbackScreen]) {
-        history.pushState({"view": currentScreenName}, currentScreenName, currentScreenName);
+        history.pushState({"view": currentScreenName}, currentScreenName, "?" + currentScreenName);
         self[callbackScreen]();
       }  else {
         currentScreen.hide();
@@ -23189,7 +23189,7 @@ class ScreenObject extends __WEBPACK_IMPORTED_MODULE_0__base_object_base_object_
     if (showScreen.length) {
       currentScreen.hide();
       showScreen.show();
-      history.pushState({"view": "${showScreen}"}, "${showScreen}", "${showScreen}");
+      history.pushState({"view": "${showScreen}"}, "${showScreen}", "?${showScreen}");
       currentScreen.triggerHandler("hide");
       showScreen.triggerHandler("show");
     }      
